@@ -1,0 +1,46 @@
+1、从文件中读取数据
+with open('pi_digits.txt') as file_object
+with：在不需要访问文件后，将其关闭
+
+2、绝对路径和相对路径
+Linux系统：
+AAA/a.txt
+
+Windows系统：
+C:\AAA\a.txt
+
+3、逐行读取
+read()：读取一整个文件
+readline()：每次读取一行，返回一个字符串对象
+readlines()：一次性独一整个文件。自动将文件内容分析成一个行的列表
+
+4、3中模式
+r：读模式（默认）
+w：写模式，若文件不存在，自动创建，每次执行都会清空原先文件中的内容
+a：附加模式，如文件不存在，自动创建，每次执行，新添加的内容都会添加到原先内容的后面
+
+5、异常处理
+  使用 try-except代码块处理异常
+  快捷键：ctrl + alt + t
+5.1 处理ZeroDivisionError异常
+
+5.2 处理 FileNotFoundError
+
+6、存储数据
+使用前需先导入 json，即 import json
+
+6.1 使用json.dump() 和 json.load()
+json.dump()：接受两个参数，要存储的数据以及可用于存储数据的文件对象
+json.load()：加载json文件的内容
+
+例子：
+    import json
+    numbers = [2, 3, 4, 5, 6, 7]
+    filename = 'numbers.json'
+    with open(filename, 'w') as file_object:
+        json.dump(numbers, file_object)
+
+    filename = 'numbers.json'
+    with open(filename) as file_object:
+        json.load(file_object)
+
